@@ -207,7 +207,17 @@ public class Picture extends SimplePicture {
    * Mirrors the picture around a vertical mirror in the center of the picture from right to left.
    */
   public void mirrorVerticalRightToLeft() {
-    /* to be implemented in 6.D Lab, part (a) */
+    Pixel[][] pixels = this.getPixels2D();
+    Pixel leftPixel = null;
+    Pixel rightPixel = null;
+    int width = pixels[0].length;
+    for (int row = 0; row < pixels.length; row++) {
+      for (int col = 0; col < width / 2; col++) {
+        leftPixel = pixels[row][col];
+        rightPixel = pixels[row][width - 1 - col];
+        leftPixel.setColor(rightPixel.getColor());
+      }
+    } 
   }
   
   
@@ -215,7 +225,14 @@ public class Picture extends SimplePicture {
    * Mirrors the picture around a horizontal mirror in the center of the picture from top to bottom.
    */
   public void mirrorHorizontalTopToBottom() {
-    /* to be implemented in 6.D Lab, part (b) */
+    Pixel[][] pixels = this.getPixels2D();
+    for (int row = 0; row < pixels.length / 2; row++) {
+      for (int col = 0; col < pixels[0].length; col++) {
+        Pixel topPixel = pixels[row][col];
+        Pixel bottomPixel = pixels[pixels.length - 1 - row][col];
+        bottomPixel.setColor(topPixel.getColor());
+      }
+    }
   }
   
   
@@ -223,7 +240,14 @@ public class Picture extends SimplePicture {
    * Mirrors the picture around a horizontal mirror in the center of the picture from bottom to top.
    */
   public void mirrorHorizontalBottomToTop() {
-    /* to be implemented in 6.D Lab, part (c) */
+    Pixel[][] pixels = this.getPixels2D();
+    for (int row = 0; row < pixels.length / 2; row++) {
+      for (int col = 0; col < pixels[0].length; col++) {
+        Pixel topPixel = pixels[row][col];
+        Pixel bottomPixel = pixels[pixels.length - 1 - row][col];
+        topPixel.setColor(bottomPixel.getColor());
+      }
+    }
   }
   
   
@@ -231,7 +255,14 @@ public class Picture extends SimplePicture {
    * Mirrors the picture around a diagonal mirror starting in the upper-left corner and continuing at a 45-degree angle.
    */
   public void mirrorDiagonal() {
-    /* to be implemented in 6.D Lab, part (d) */
+    Pixel[][] pixels = this.getPixels2D();
+    for (int row = 0; row < pixels.length; row++) {
+      for (int col = 0; col < row; col++) {
+        Pixel pixel = pixels[row][col];
+        Pixel mirror = pixels[col][row];
+        mirror.setColor(pixel.getColor());
+      }
+    }
   }
   
 
@@ -261,7 +292,16 @@ public class Picture extends SimplePicture {
    * Mirrors just part of a picture of a snowman.
    */
   public void mirrorArms() {
-    /* to be implemented in 6.E Lab, part (a) */
+    Pixel[][] pixels = this.getPixels2D();
+    
+    // loops through the rows
+    for (int row = 163; row < 194; row++) {
+      for (int col = 100; col < 300; col++) {
+        Pixel topPixel = pixels[row][col];      
+        Pixel bottomPixel = pixels[194 + (194 - row)][col];
+        bottomPixel.setColor(topPixel.getColor());
+      }
+    }
   }
   
   
@@ -269,7 +309,16 @@ public class Picture extends SimplePicture {
    * Mirrors just part of a picture of a swan.
    */
   public void mirrorSwan() {
-    /* to be implemented in 6.E Lab, part (b) */
+    mirrorVerticalRightToLeft();
+
+    Pixel[][] pixels = this.getPixels2D();
+    for (int row = 0; row < 185; row++) {
+      for (int col = 291; col < 403; col++) {
+        Pixel rightPixel = pixels[row][col];
+        Pixel leftPixel = pixels[row][291 - (col - 291)];
+        leftPixel.setColor(rightPixel.getColor());
+      }
+    }
   }
 
 

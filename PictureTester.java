@@ -17,20 +17,20 @@ public class PictureTester {
   //  testKeepOnlyBlue();
   //  testNegate();
   //  testGrayscale();
-   testFixUnderwater();
+  //  testFixUnderwater();
     
     /************************************ 6.D Lab ************************************/
     
-//    testMirrorVerticalLeftToRight();
-//    testMirrorVerticalRightToLeft();
-//    testMirrorHorizontalTopToBottom();
-//    testMirrorHorizontalBottomToTop();
-//    testMirrorDiagonal();
+  //  testMirrorVerticalLeftToRight();
+  //  testMirrorVerticalRightToLeft();
+  //  testMirrorHorizontalTopToBottom();
+  //  testMirrorHorizontalBottomToTop();
+  //  testMirrorDiagonal();
     
     /************************************ 6.E Lab ************************************/
 
-//    testMirrorTemple();
-//    testMirrorArms();
+  //  testMirrorTemple();
+  //  testMirrorArms();
 //    testMirrorSwan();
     
     /************************************ 6.F Lab ************************************/
