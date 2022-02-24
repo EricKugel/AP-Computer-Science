@@ -327,7 +327,8 @@ public class Picture extends SimplePicture {
   /**
    * Method to combine two images. Each pixel of the new image is 50% of each of the two original images.
    */
-  public void change1(Picture other) {
+  public void change1() {
+      Picture other = new Picture("images/koala.jpg");
       Pixel[][] pixels = getPixels2D();
       Pixel[][] otherPixels = other.getPixels2D();
       for (int row = 0; row < pixels.length && row < otherPixels.length; row++) {
@@ -343,6 +344,7 @@ public class Picture extends SimplePicture {
   
   /**
    * Method to make an image stripy
+   * I purposely made it blue, pink, and yellow and not red, green, and blue because I think it looks cooler
    */
   public void change2() {
     Pixel[][] pixels = getPixels2D();
@@ -362,13 +364,14 @@ public class Picture extends SimplePicture {
   /**
    * Method to do a green screen
    */
-  public void change3(Picture other) {
+  public void change3() {
+    Picture background = new Picture("images/beach.jpg");
     Pixel[][] pixels = getPixels2D();
-    Pixel[][] otherPixels = other.getPixels2D();
-    for (int row = 0; row < pixels.length && row < otherPixels.length; row++) {
-      for (int col = 0; col < pixels[0].length && col < otherPixels[0].length; col++) {
+    Pixel[][] backgroundPixels = background.getPixels2D();
+    for (int row = 0; row < pixels.length && row < backgroundPixels.length; row++) {
+      for (int col = 0; col < pixels[0].length && col < backgroundPixels[0].length; col++) {
         Pixel pixel1 = pixels[row][col];
-        Pixel pixel2 = otherPixels[row][col];
+        Pixel pixel2 = backgroundPixels[row][col];
         if (pixel1.getGreen() > pixel1.getRed() && pixel1.getGreen() > pixel1.getBlue()) {
           pixel1.setColor(pixel2.getColor());
         }
