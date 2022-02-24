@@ -396,8 +396,8 @@ public class Picture extends SimplePicture {
   public void change5() {
     Pixel[][] pixels = getPixels2D();
     int chunkSize = 10;
-    for (int rowChunk = 0; rowChunk < chunkSize; rowChunk++) {
-      for (int colChunk = 0; colChunk < chunkSize; colChunk++) {    
+    for (int rowChunk = 0; rowChunk < pixels.length / chunkSize; rowChunk++) {
+      for (int colChunk = 0; colChunk < pixels[0].length / chunkSize; colChunk++) {    
         int redSum = 0;
         int greenSum = 0;
         int blueSum = 0;

@@ -39,7 +39,7 @@ public class PictureTester {
   //  testChange2();
   // testChange3();
   // testChange4();
-  testChange5();
+  // testChange5();
     
   }
   
