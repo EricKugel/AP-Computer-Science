@@ -325,20 +325,100 @@ public class Picture extends SimplePicture {
   /************************************ 6.F Lab ************************************/
   
   /**
-   * Method to _________________________________
+   * Method to combine two images. Each pixel of the new image is 50% of each of the two original images.
    */
-  public void change1() {
-    /* to be implemented in 6 Appendix Project */
-       
+  public void change1(Picture other) {
+      Pixel[][] pixels = getPixels2D();
+      Pixel[][] otherPixels = other.getPixels2D();
+      for (int row = 0; row < pixels.length && row < otherPixels.length; row++) {
+        for (int col = 0; col < pixels[0].length && col < otherPixels[0].length; col++) {
+          Pixel pixel1 = pixels[row][col];
+          Pixel pixel2 = otherPixels[row][col];
+          pixel1.setRed((pixel1.getRed() + pixel2.getRed()) / 2);
+          pixel1.setGreen((pixel1.getGreen() + pixel2.getGreen()) / 2);
+          pixel1.setBlue((pixel1.getBlue() + pixel2.getBlue()) / 2);
+        }
+      }
   }
-  
   
   /**
-   * Method to _________________________________
+   * Method to make an image stripy
    */
   public void change2() {
-    /* to be implemented in 6 Appendix Project */
+    Pixel[][] pixels = getPixels2D();
+    for (int row = 0; row < pixels.length; row++) {
+      for (int col = 0; col < pixels[0].length; col++) {
+        if (row % 100 < 33) {
+          pixels[row][col].setRed(0);
+        } else if (row % 100 < 66) {
+          pixels[row][col].setGreen(0);
+        } else {
+          pixels[row][col].setBlue(0);
+        }
+      }
+    }
   }
 
+  /**
+   * Method to do a green screen
+   */
+  public void change3(Picture other) {
+    Pixel[][] pixels = getPixels2D();
+    Pixel[][] otherPixels = other.getPixels2D();
+    for (int row = 0; row < pixels.length && row < otherPixels.length; row++) {
+      for (int col = 0; col < pixels[0].length && col < otherPixels[0].length; col++) {
+        Pixel pixel1 = pixels[row][col];
+        Pixel pixel2 = otherPixels[row][col];
+        if (pixel1.getGreen() > pixel1.getRed() && pixel1.getGreen() > pixel1.getBlue()) {
+          pixel1.setColor(pixel2.getColor());
+        }
+      }
+    }
+  }
 
+  /**
+   * Method to make an image have a color fade from right to left
+   */
+  public void change4() {
+    Pixel[][] pixels = getPixels2D();
+    for (int row = 0; row < pixels.length; row++) {
+      for (int col = 0; col < pixels[0].length; col++) {
+        Pixel pixel = pixels[row][col];
+        pixel.setRed((int) (pixel.getRed() * ((double) col / pixels[0].length)));
+        pixel.setBlue((int) (pixel.getBlue() * ((double) (pixels[0].length - col) / pixels[0].length)));
+      }
+    }
+  }
+
+  /**
+   * Method to pixelate an image using color averages
+   */
+  public void change5() {
+    Pixel[][] pixels = getPixels2D();
+    int chunkSize = 10;
+    for (int rowChunk = 0; rowChunk < chunkSize; rowChunk++) {
+      for (int colChunk = 0; colChunk < chunkSize; colChunk++) {    
+        int redSum = 0;
+        int greenSum = 0;
+        int blueSum = 0;
+        for (int row = rowChunk * chunkSize; row < rowChunk * chunkSize + chunkSize; row++) {
+          for (int col = colChunk * chunkSize; col < colChunk * chunkSize + chunkSize; col++) {
+            redSum += pixels[row][col].getRed();
+            greenSum += pixels[row][col].getGreen();
+            blueSum += pixels[row][col].getBlue();
+          }
+        }
+        int redAverage = redSum / (chunkSize * chunkSize);
+        int greenAverage = greenSum / (chunkSize * chunkSize);
+        int blueAverage = blueSum / (chunkSize * chunkSize);
+        for (int row = rowChunk * chunkSize; row < rowChunk * chunkSize + chunkSize; row++) {
+          for (int col = colChunk * chunkSize; col < colChunk * chunkSize + chunkSize; col++) {
+            pixels[row][col].setRed(redAverage);
+            pixels[row][col].setGreen(greenAverage);
+            pixels[row][col].setBlue(blueAverage);
+          }
+        }
+      }
+    }
+  }
 }

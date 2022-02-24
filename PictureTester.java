@@ -35,8 +35,11 @@ public class PictureTester {
     
     /************************************ 6.F Lab ************************************/
     
-//    testChange1();
-//    testChange2();
+  //  testChange1();
+  //  testChange2();
+  // testChange3();
+  // testChange4();
+  testChange5();
     
   }
   
@@ -189,12 +192,7 @@ public class PictureTester {
    */
   private static void testChange1() {
     Picture pic = new Picture("images/beach.jpg");
-    pic.explore();
-    pic.change1();
-    pic.explore();
-    pic = new Picture("images/koala.jpg");
-    pic.explore();
-    pic.change1();
+    pic.change1(new Picture("images/koala.jpg"));
     pic.explore();
   }
   
@@ -211,5 +209,34 @@ public class PictureTester {
     pic.change2();
     pic.explore();
   }
+
+  /**
+   * Tests change3 method.
+   */
+  private static void testChange3() {
+    Picture pic = new Picture("images/whiteFlower.jpg");
+    pic.explore();
+    pic.change3(new Picture("images/beach.jpg"));
+    pic.explore();
+  }
   
+  /**
+   * Tests change4 method.
+   */
+  private static void testChange4() {
+    Picture pic = new Picture("images/beach.jpg");
+    pic.explore();
+    pic.change4();
+    pic.explore();
+  }
+
+  /**
+   * Tests change5 method.
+   */
+  private static void testChange5() {
+    Picture pic = new Picture("images/koala.jpg");
+    pic.explore();
+    pic.change5();
+    pic.explore();
+  }
 }
