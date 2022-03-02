@@ -1,6 +1,5 @@
 {
     "java.project.sourcePaths": [
-        "Chapter-6",
-        "Chapter-6-Extension"
+        "Chapter-6"
     ]
 }
