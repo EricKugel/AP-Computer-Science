@@ -328,7 +328,7 @@ public class Picture extends SimplePicture {
    * Method to combine two images. Each pixel of the new image is 50% of each of the two original images.
    */
   public void change1() {
-      Picture other = new Picture("images/koala.jpg");
+      Picture other = new Picture("Chapter-6-Extension/images/koala.jpg");
       Pixel[][] pixels = getPixels2D();
       Pixel[][] otherPixels = other.getPixels2D();
       for (int row = 0; row < pixels.length && row < otherPixels.length; row++) {
@@ -365,7 +365,7 @@ public class Picture extends SimplePicture {
    * Method to do a green screen
    */
   public void change3() {
-    Picture background = new Picture("images/beach.jpg");
+    Picture background = new Picture("Chapter-6-Extension/images/beach.jpg");
     Pixel[][] pixels = getPixels2D();
     Pixel[][] backgroundPixels = background.getPixels2D();
     for (int row = 0; row < pixels.length && row < backgroundPixels.length; row++) {
