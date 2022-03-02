@@ -1,0 +1,9 @@
+// Eric Kugel
+
+public class TwoDArray {
+  private int[][] array = null;
+  
+  public TwoDArray(int rows, int cols, int targetRow, int targetCol) {
+    
+  }
+}
