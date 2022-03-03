@@ -157,7 +157,27 @@ public class PictureExplorer implements MouseMotionListener, ActionListener, Mou
     hundredFifty.addActionListener(this);
     twoHundred.addActionListener(this);
     fiveHundred.addActionListener(this);
-    
+
+    // tester bar
+    JMenu testMenu = new JMenu("Test Method");
+    String[][] methods = {{"testZeroBlue", "testKeepOnlyBlue", "testNegate", "testGrayscale", "testFixUnderwater"}, {"testMirrorVerticalLeftToRight", "testMirrorVerticalRightToLeft", "testMirrorHorizontalTopToBottom", "testMirrorHorizontalBottomToTop", "testMirrorDiagonal"}, {"testMirrorTemple", "testMirrorArms", "testMirrorSwan"}, {"testChange1", "testChange2"}};
+    String[] labs = {"6.C Lab", "6.D Lab", "6.E Lab", "6.F Lab"};
+    for (int labIndex = 0; labIndex < labs.length; labIndex++) {
+      JMenu labMenu = new JMenu(labs[labIndex]);
+      for (int methodIndex = 0; methodIndex < methods[labIndex].length; methodIndex++) {
+        JMenuItem item = new JMenuItem(methods[labIndex][methodIndex]);
+        item.addActionListener(new ActionListener() {
+          public void actionPerformed(ActionEvent e) {
+            String method = item.getText();
+            PictureTester.run(method);
+          }
+        });
+        labMenu.add(item);
+      }
+      testMenu.add(labMenu);
+    }
+    menuBar.add(testMenu);
+
     // adds the menu items to the menus
     zoomMenu.add(twentyFive);
     zoomMenu.add(fifty);
@@ -171,6 +191,8 @@ public class PictureExplorer implements MouseMotionListener, ActionListener, Mou
     // sets the menu bar to this menu
     pictureFrame.setJMenuBar(menuBar);
   }
+
+  
   
   /**
    * Creates and initializes the scrolling image
@@ -754,8 +776,8 @@ public class PictureExplorer implements MouseMotionListener, ActionListener, Mou
    * The tester constructs a Picture object and invokes the explore method.
    */
   public static void main( String args[]) {
-    Picture pix = new Picture("images/explosion.png");
-    pix.explore();
+    Picture pic = new Picture("Chapter-6-Extension/images/beach.jpg");
+    pic.explore();
   }
   
 }

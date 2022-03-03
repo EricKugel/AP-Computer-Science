@@ -35,12 +35,47 @@ public class PictureTester {
     
     /************************************ 6.F Lab ************************************/
     
-   testChange1();
-   testChange2();
-  testChange3();
-  testChange4();
-  testChange5();
-    
+  //  testChange1();
+  //  testChange2();
+  // testChange3();
+  // testChange4();
+  // testChange5();
+  Picture pic = new Picture("Chapter-6-Extension/images/beach.jpg");
+  pic.explore();
+  }
+
+  public static void run(String method) {
+    if (method.equals("testZeroBlue")) {
+      PictureTester.testZeroBlue();
+    }  else if (method.equals("testKeepOnlyBlue")) {
+        PictureTester.testKeepOnlyBlue();
+    }  else if (method.equals("testNegate")) {
+        PictureTester.testNegate();
+    }  else if (method.equals("testGrayscale")) {
+        PictureTester.testGrayscale();
+    }  else if (method.equals("testFixUnderwater")) {
+        PictureTester.testFixUnderwater();
+    }  else if (method.equals("testMirrorVerticalLeftToRight")) {  
+        PictureTester.testMirrorVerticalLeftToRight();
+    }  else if (method.equals("testMirrorVerticalRightToLeft")) {  
+        PictureTester.testMirrorVerticalRightToLeft();
+    }  else if (method.equals("testMirrorHorizontalTopToBottom")) {
+        PictureTester.testMirrorHorizontalTopToBottom();       
+    }  else if (method.equals("testMirrorHorizontalBottomToTop")) {
+        PictureTester.testMirrorHorizontalBottomToTop();
+    }  else if (method.equals("testMirrorDiagonal")) {
+        PictureTester.testMirrorDiagonal();
+    }  else if (method.equals("testMirrorTemple")) {
+        PictureTester.testMirrorTemple();
+    }  else if (method.equals("testMirrorArms")) {
+        PictureTester.testMirrorArms();
+    }  else if (method.equals("testMirrorSwan")) {
+        PictureTester.testMirrorSwan();
+    }  else if (method.equals("testChange1")) {
+        PictureTester.testChange1();
+    }  else if (method.equals("testChange2")) {
+        PictureTester.testChange2();
+    }
   }
   
   

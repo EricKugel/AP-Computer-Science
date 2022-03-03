@@ -2,8 +2,6 @@ import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
 
-import java.util.ArrayList;
-
 public class Day6 {
   public static void main(String[] args) throws FileNotFoundException {
     File textFile = new File("input.txt");
@@ -23,6 +21,8 @@ public class Day6 {
 
     System.out.println(spawn(80, cycle));
     System.out.println(spawn(256, cycle));
+
+    scanner.close();
   }
 
   public static long spawn(int days, long[] fish) {
