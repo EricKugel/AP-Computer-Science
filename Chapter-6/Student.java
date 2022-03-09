@@ -1,66 +1,39 @@
+/**
+ * A student contains the name, and the number of absences from school.
+ */
 public class Student {
-  private String name = "";
-  private int gradeLevel = 0;
-  private double gpa = -1;
-  private int numberOfClasses = 0;
-  private String emailAddress = "";
-  private int energyLevel = -1;
+  private String name = null;
+  private int absenceCount = -1;
   
-  public Student(String name, int gradeLevel, double gpa, int numberOfClasses, String emailAddress) {
+  /** 
+   * Constructs a student by initializing instance variables to parameters.
+   * Not included in the original AP question.
+   * 
+   * @param name          the student's name
+   * @param absenceCount  the current number of absences for the student
+   */
+  public Student(String name, int absenceCount) {
     this.name = name;
-    this.gradeLevel = gradeLevel;
-    this.gpa = gpa;
-    this.numberOfClasses = numberOfClasses;
-    this.emailAddress = emailAddress;
-    energyLevel = 30;
+    this.absenceCount = absenceCount;
   }
   
-  public void addClass(int numberOfClasses) {
-    if (this.numberOfClasses + numberOfClasses <= 7) {
-      this.numberOfClasses += numberOfClasses;
-      energyLevel -= 3;
-    }
-  }
-  
-  public void dropClass(int numberOfClasses) {
-    if (this.numberOfClasses + numberOfClasses >= 6) {
-      this.numberOfClasses -= numberOfClasses;
-      energyLevel -= 3;
-    }
-  }
-  
-  public void advanceGrade() {
-    gradeLevel++;
-    energyLevel -= 3;
-  }
-  
+  /**
+   * Returns the name of the student.
+   * Not implemented in the original AP question.
+   * 
+   * @return  the name of the student
+   */
   public String getName() {
-    return name;
+    return name;  
   }
   
-  public int getGrade() {
-    return gradeLevel;
-  }
-  
-  public double getGpa() {
-    return gpa;
-  }
-  
-  public int getClasses() {
-    return numberOfClasses;
-  }
-  
-  public String getEmail() {
-    return emailAddress;
-  }
-  
-  public int getEnergy() {
-    return energyLevel;
-  }
-  
-  public String toString() {
-    return "Name: " + name + ", Grade: " + gradeLevel + "\n" + 
-           "GPA: " + gpa + ", Classes: " + numberOfClasses + "\n" +
-           "Email: " + emailAddress + ", Energy: " + energyLevel;
+  /** 
+   * Returns the number of times this student has missed class.
+   * Not implemented in the original AP question.
+   * 
+   * @return  the number of times this student has missed class.
+   */
+  public int getAbsenceCount() {
+    return absenceCount;
   }
 }
