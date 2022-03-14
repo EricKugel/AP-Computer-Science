@@ -1,0 +1,58 @@
+import java.util.List;
+
+/**
+ * Scramble contains class (static) methods to manipulate characters in a string, or strings in a list.
+ */
+public class Scramble {
+  /** 
+   * Scrambles a given word.
+   * Precondition: word is either an empty string or contains only uppercase letters.
+   * Postcondition: the string returned was created from word as follows:
+   *  - the word was scrambled, beginning at the first letter and continuing from left to right
+   *  - two consecutive letters consisting of "A" followed by a letter that was not "A" were swapped
+   *  - letters were swapped at most once
+   * 
+   * @param word  the word to be scrambled
+   * @return      the scrambled word (possibly equal to word)
+   */
+  public static String scrambleWord(String word) {
+    word = word.toUpperCase();
+    for (int i = 0; i < word.length(); i++) {
+      if (i < word.length() - 1 
+        && ("" + word.charAt(i)).equals("A")
+        && !("" + word.charAt(i + 1)).equals("A")) {
+          word = word.substring(0, i) + word.charAt(i + 1) + "A" + word.substring(i + 2);
+          i++;
+      }
+    }
+    return word;
+  }
+  
+  
+  /** 
+   * Modifies wordList by replacing each word with its scrambled
+   * version, removing any words that are unchanged as a result of scrambling.
+   * Precondition: wordList contains only non-null objects
+   * Postcondition:
+   *  - all words unchanged by scrambling have been removed from wordList
+   *  - each of the remaining words has been replaced by its scrambled version
+   *  - the relative ordering of the entries in wordList is the same as it was
+   *       before the method was called
+   * 
+   * @param wordList  the list of words
+   */
+  public static void scrambleOrRemove(List<String> wordList) {
+    for (int i = 0; i < wordList.size(); i++) {
+      String scrambled = scrambleWord(wordList.get(i));
+      if (!scrambled.equals(wordList.get(i))) {
+        wordList.remove(i);
+        wordList.add(i, scrambled);
+      } else {
+        wordList.remove(i);
+        i--;
+      }
+    }
+  }
+  
+  
+}
