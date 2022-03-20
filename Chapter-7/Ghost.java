@@ -1,4 +1,4 @@
-enum Color {RED, PINK, CYAN, ORANGE, BLUE}
+enum Color {red, pink, cyan, orange, blue}
 
 public class Ghost extends PacMan {
     private Color defaultColor;
@@ -33,7 +33,7 @@ public class Ghost extends PacMan {
     }
 
     private void setColor() {
-        currentColor = attackMode ? defaultColor : Color.BLUE;
+        currentColor = attackMode ? defaultColor : Color.blue;
     }
 
     private void reverseFacing() {
@@ -41,7 +41,30 @@ public class Ghost extends PacMan {
         if (facing == Direction.down) {
             setFacing(Direction.up);
         } else if (facing == Direction.left) {
-            
+            setFacing(Direction.right);
+        } else if (facing == Direction.right) {
+            setFacing(Direction.left);
+        } else {
+            setFacing(Direction.down);
         }
+    }
+
+    public void setAttackMode() {
+        if (msPacMan.hasEaten()) {
+            attackMode = false;
+        } else {
+            attackMode = true;
+        }
+        setColor();
+        reverseFacing();
+    }
+
+    @Override
+    public String toString() {
+        String output = super.toString();
+        output += "\n";
+        output += "Color: " + currentColor + ", ";
+        output += "Attack mode: " + attackMode;
+        return output;
     }
 }

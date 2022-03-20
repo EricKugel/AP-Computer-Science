@@ -178,6 +178,9 @@ public class PictureExplorer implements MouseMotionListener, ActionListener, Mou
     }
     menuBar.add(testMenu);
 
+    // image bar
+    JMenu imageMenu = new JMenu("")
+
     // adds the menu items to the menus
     zoomMenu.add(twentyFive);
     zoomMenu.add(fifty);

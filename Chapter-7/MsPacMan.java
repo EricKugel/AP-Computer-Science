@@ -8,7 +8,7 @@ public class MsPacMan extends PacMan {
         this.points = points;
     }
 
-    public void setHasEaten(boolean hasEaten) {
+    public void setPowerPellet(boolean hasEaten) {
         this.hasEaten = hasEaten;
     }
 

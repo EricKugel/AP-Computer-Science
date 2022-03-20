@@ -9,39 +9,8 @@ public class PictureTester {
    * Main method for testing.
    */
   public static void main(String[] args) {
-    // Uncomment a call here to run a test and comment out the ones you don't want to run.
-    
-    /************************************ 6.C Lab ************************************/
-    
-    // testZeroBlue();
-  //  testKeepOnlyBlue();
-  //  testNegate();
-  //  testGrayscale();
-  //  testFixUnderwater();
-    
-    /************************************ 6.D Lab ************************************/
-    
-  //  testMirrorVerticalLeftToRight();
-  //  testMirrorVerticalRightToLeft();
-  //  testMirrorHorizontalTopToBottom();
-  //  testMirrorHorizontalBottomToTop();
-  //  testMirrorDiagonal();
-    
-    /************************************ 6.E Lab ************************************/
-
-  //  testMirrorTemple();
-  //  testMirrorArms();
-//    testMirrorSwan();
-    
-    /************************************ 6.F Lab ************************************/
-    
-  //  testChange1();
-  //  testChange2();
-  // testChange3();
-  // testChange4();
-  // testChange5();
-  Picture pic = new Picture("Chapter-6-Extension/images/beach.jpg");
-  pic.explore();
+    Picture pic = new Picture("Chapter-6-Extension/images/beach.jpg");
+    pic.explore();
   }
 
   public static void run(String method) {
