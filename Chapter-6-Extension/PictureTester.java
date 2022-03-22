@@ -210,33 +210,33 @@ public class PictureTester {
     pic.explore();
   }
 
-  /**
-   * Tests change3 method.
-   */
-  private static void testChange3() {
-    Picture pic = new Picture("Chapter-6-Extension/images/whiteFlower.jpg");
-    pic.explore();
-    pic.change3();
-    pic.explore();
-  }
+  // /**
+  //  * Tests change3 method.
+  //  */
+  // private static void testChange3() {
+  //   Picture pic = new Picture("Chapter-6-Extension/images/whiteFlower.jpg");
+  //   pic.explore();
+  //   pic.change3();
+  //   pic.explore();
+  // }
   
-  /**
-   * Tests change4 method.
-   */
-  private static void testChange4() {
-    Picture pic = new Picture("Chapter-6-Extension/images/beach.jpg");
-    pic.explore();
-    pic.change4();
-    pic.explore();
-  }
+  // /**
+  //  * Tests change4 method.
+  //  */
+  // private static void testChange4() {
+  //   Picture pic = new Picture("Chapter-6-Extension/images/beach.jpg");
+  //   pic.explore();
+  //   pic.change4();
+  //   pic.explore();
+  // }
 
-  /**
-   * Tests change5 method.
-   */
-  private static void testChange5() {
-    Picture pic = new Picture("Chapter-6-Extension/images/redMotorcycle.jpg");
-    pic.explore();
-    pic.change5();
-    pic.explore();
-  }
+  // /**
+  //  * Tests change5 method.
+  //  */
+  // private static void testChange5() {
+  //   Picture pic = new Picture("Chapter-6-Extension/images/redMotorcycle.jpg");
+  //   pic.explore();
+  //   pic.change5();
+  //   pic.explore();
+  // }
 }

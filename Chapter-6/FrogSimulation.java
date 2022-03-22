@@ -34,6 +34,7 @@ public class FrogSimulation
       System.out.println("What example would you like to simulate? (Type a number 1-6.)");
       System.out.println("Examples 1-5 are taken from the lab directions.  Example 6 is for random siumlations.");
       exampleNum = userInput.nextInt();
+      userInput.close();
     }
     
     int[] example = null;

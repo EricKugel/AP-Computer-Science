@@ -86,7 +86,7 @@ public class TileGame {
    */
   public String toString() {
     String output = "Current Board\n ";
-    for (NumberTile item : board) {
+    for (int i = 0; i < board.size(); i++) {
       output += "------- ";
     }
     output += "\n|   ";
@@ -102,7 +102,7 @@ public class TileGame {
       output += item.getBottom() + "   |   ";
     }
     output += "\n ";
-    for (NumberTile item : board) {
+    for (int i = 0; i < board.size(); i++) {
       output += "------- ";
     }
     output += "\n";

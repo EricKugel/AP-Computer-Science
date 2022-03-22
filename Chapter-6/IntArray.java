@@ -13,6 +13,7 @@ public class IntArray {
       int input = scanner.nextInt();
       digits[i] = input;
     }
+    scanner.close();
   }
   
   public int evenIndexSum() {

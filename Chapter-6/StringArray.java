@@ -14,6 +14,7 @@ public class StringArray implements Editable {
       String word = scanner.nextLine();
       words[i + index] = word;
     }
+    scanner.close();
   }
 
   public void append(int numberOfWords) {

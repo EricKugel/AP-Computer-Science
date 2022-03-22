@@ -1,6 +1,7 @@
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.awt.*;
+import java.awt.Color;
 import java.io.*;
 import java.awt.geom.*;
 
@@ -71,7 +72,7 @@ public class SimplePicture implements DigitalPicture {
     title = "None";
     fileName = "None";
     extension = "jpg";
-    setAllPixelsToAColor(Color.white);
+    setAllPixelsToAColor(Color.WHITE);
   }
   
   /**
@@ -494,7 +495,7 @@ public class SimplePicture implements DigitalPicture {
     Graphics2D graphics2d = bufferedImage.createGraphics();
     
     // sets the color to white
-    graphics2d.setPaint(Color.white);
+    graphics2d.setPaint(Color.WHITE);
     
     // sets the font to Helvetica bold style and size 16
     graphics2d.setFont(new Font("Helvetica",Font.BOLD,16));

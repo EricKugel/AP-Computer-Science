@@ -48,5 +48,6 @@ public class ReactionTimes {
     // 8. Print a message stating the second average reaction times of the user.
     System.out.println("Your second average reaction time is " + secondAverage);
     
+    scanner.close();
   }
 }

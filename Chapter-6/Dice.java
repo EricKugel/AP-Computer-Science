@@ -21,6 +21,7 @@ public class Dice {
       System.out.println("Oops.  Choose a number of sides for your die from 4 to 100.");
       numSides = userInput.nextInt();
     }
+    userInput.close();
     this.numSides = numSides;
     faceValue = 1;
     picked = false;

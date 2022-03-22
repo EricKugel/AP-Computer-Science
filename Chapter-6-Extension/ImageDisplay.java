@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.Color;
 
 /**
  * Displays an image and the current location with a + sign
@@ -176,10 +177,10 @@ public class ImageDisplay extends JPanel implements Scrollable {
         yEnd = maxY;
       
       // draws a small cross at the current x and y in yellow
-      g.setColor(Color.yellow);
+      g.setColor(Color.YELLOW);
       g.drawLine(xStart,currentY,xEnd,currentY);
       g.drawLine(currentX,yStart,currentX,yEnd);
-      g.setColor(Color.black);
+      g.setColor(Color.BLACK);
       
       // outlines the cross in black so that it shows up better
       int leftX = currentX - 1;

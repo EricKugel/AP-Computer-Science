@@ -74,21 +74,21 @@ public class Robot
     return true;
   }
   
-  /** Prints a string representation of the Robot. */
-  private void seeProgress() {
-    String output = "0 1 2 3\n";
-    for (int item :  hall) {
-      output += item + " ";
-    }
-    output += "\n";
-    for (int i = 0; i < pos; i++) {
-      output += "  ";
-    }
-    if (facingRight) {
-      output += ">\n";
-    } else {
-      output += "<\n";
-    }
-    System.out.println(output);
-  }
+  // /** Prints a string representation of the Robot. */
+  // private void seeProgress() {
+  //   String output = "0 1 2 3\n";
+  //   for (int item :  hall) {
+  //     output += item + " ";
+  //   }
+  //   output += "\n";
+  //   for (int i = 0; i < pos; i++) {
+  //     output += "  ";
+  //   }
+  //   if (facingRight) {
+  //     output += ">\n";
+  //   } else {
+  //     output += "<\n";
+  //   }
+  //   System.out.println(output);
+  // }
 }

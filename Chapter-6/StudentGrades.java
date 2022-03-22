@@ -48,6 +48,7 @@ public class StudentGrades {
     Scanner userInput = new Scanner(System.in);
     System.out.println("\nEnter your student ID: ");
     int userID = userInput.nextInt();
+    userInput.close();
     
     System.out.println("Your scores: ");
     String output = "";

@@ -1,5 +1,3 @@
-import javax.security.auth.kerberos.KerberosKey;
-
 /**
  * A Trail object stores and revises samples of sound.
  */

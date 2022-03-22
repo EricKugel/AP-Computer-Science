@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.awt.Color;
 import java.awt.event.*;
 import javax.swing.*;
 import java.awt.image.*;
@@ -177,9 +178,6 @@ public class PictureExplorer implements MouseMotionListener, ActionListener, Mou
       testMenu.add(labMenu);
     }
     menuBar.add(testMenu);
-
-    // image bar
-    JMenu imageMenu = new JMenu("")
 
     // adds the menu items to the menus
     zoomMenu.add(twentyFive);
@@ -385,7 +383,7 @@ public class PictureExplorer implements MouseMotionListener, ActionListener, Mou
     // creates the sample color panel and label
     colorLabel = new JLabel("Color at location: ");
     colorPanel = new JPanel();
-    colorPanel.setBorder(new LineBorder(Color.black,1));
+    colorPanel.setBorder(new LineBorder(Color.BLACK, 1));
     
     // sets the color sample to the pixel color
     colorPanel.setBackground(pixel.getColor());
@@ -615,7 +613,7 @@ public class PictureExplorer implements MouseMotionListener, ActionListener, Mou
     rValue.setText("R: N/A");
     gValue.setText("G: N/A");
     bValue.setText("B: N/A");
-    colorPanel.setBackground(Color.black);
+    colorPanel.setBackground(Color.BLACK);
     colIndex = -1;
     rowIndex = -1;
   }
