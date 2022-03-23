@@ -1,5 +1,6 @@
 import java.awt.*;
 import java.awt.Color;
+import java.awt.Rectangle;
 import java.awt.event.*;
 import javax.swing.*;
 import java.awt.image.*;
