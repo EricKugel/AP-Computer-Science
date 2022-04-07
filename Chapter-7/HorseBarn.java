@@ -56,7 +56,15 @@ public class HorseBarn {
    * Postcondition: The order of the horses is the same as before the consolidation.
    */
   public void consolidate() {
-    
+    int index = 0;
+    for (int i = 0; i < spaces.length; i++) {
+      if (spaces[i] != null) {
+        Horse temp = spaces[i];
+        spaces[i] = null;
+        spaces[index] = temp;
+        index += 1;
+      }
+    }
   }
   
   
