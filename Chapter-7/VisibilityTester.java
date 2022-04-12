@@ -7,6 +7,10 @@ public class VisibilityTester {
         var2 = v2;
     }
 
+    public void c() {
+        System.out.println("ABC");
+    }
+
     public boolean equals(Object other) {
         if (other == null) {
             return false;
@@ -19,8 +23,7 @@ public class VisibilityTester {
     
     public static void main(String[] arg0) {
         VisibilityTester t1 = new VisibilityTester(3, "abdd");
-        VisibilityTester t2 = new VisibilityTester(4, "asdfja");
-        System.out.println(t1.equals(t2));
+        System.out.println(/*t1.c*/t1.var1);
     }
 }
     

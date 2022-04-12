@@ -44,7 +44,6 @@ public class Shelf {
             }
             output += "\n";
         }
-
         return output;
     }
 }
