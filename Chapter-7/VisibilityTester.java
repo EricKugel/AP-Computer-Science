@@ -26,5 +26,3 @@ public class VisibilityTester {
         System.out.println(/*t1.c*/t1.var1);
     }
 }
-    
-

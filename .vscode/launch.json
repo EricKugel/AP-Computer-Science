@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch RecursionPractice1And2",
+            "request": "launch",
+            "mainClass": "RecursionPractice1And2",
+            "projectName": "AP-Computer-Science_def20106"
+        },
+        {
+            "type": "java",
             "name": "Launch VisibilityTester",
             "request": "launch",
             "mainClass": "VisibilityTester",
