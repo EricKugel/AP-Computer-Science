@@ -1,6 +1,5 @@
 public class CheckoutItem extends ReadingMaterial {
     private int dueIn = -1;
-    private int holder = 0;
     private boolean checkedOut;
 
     public CheckoutItem(String author, String title, String publisher, int numPages, String condition) {
@@ -10,7 +9,6 @@ public class CheckoutItem extends ReadingMaterial {
     @Override
     public void checkOut(int holder) {
         checkedOut = true;
-        this.holder = holder;
     }
 
     public void isCheckedOut() {
@@ -19,7 +17,6 @@ public class CheckoutItem extends ReadingMaterial {
 
     public void returnItem() {
         checkedOut = false;
-        holder = 0;
     }
 
     public void setDueIn(int dueIn) {
