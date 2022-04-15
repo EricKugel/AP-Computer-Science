@@ -52,6 +52,5 @@
 //     output += "\n" + getName() + " is played in " + time + " minutes.";
 //     return output;
 //   }
-  
-  
+
 // }
