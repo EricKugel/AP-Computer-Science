@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch RecursionPractice5And6",
+            "request": "launch",
+            "mainClass": "RecursionPractice5And6",
+            "projectName": "AP-Computer-Science_def20106"
+        },
+        {
+            "type": "java",
+            "name": "Launch RecursionPractice3And4",
+            "request": "launch",
+            "mainClass": "RecursionPractice3And4",
+            "projectName": "AP-Computer-Science_def20106"
+        },
+        {
+            "type": "java",
             "name": "Launch RecursionPractice1And2",
             "request": "launch",
             "mainClass": "RecursionPractice1And2",
