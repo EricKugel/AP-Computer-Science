@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch RecursionTester",
+            "request": "launch",
+            "mainClass": "RecursionTester",
+            "projectName": "AP-Computer-Science_def20106"
+        },
+        {
+            "type": "java",
+            "name": "Launch PalindromeTester",
+            "request": "launch",
+            "mainClass": "PalindromeTester",
+            "projectName": "AP-Computer-Science_def20106"
+        },
+        {
+            "type": "java",
             "name": "Launch TurtleTester",
             "request": "launch",
             "mainClass": "TurtleTester",
