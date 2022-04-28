@@ -59,7 +59,6 @@ public class RecursionTester {
    * @return     a string representation of the number, with additional commas
    */
   public static String commas(int num) {
-    String output = "";
     if (num < 1000) {
       return "" + num;
     } else {

@@ -6,6 +6,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch TestResultsDriver",
+            "request": "launch",
+            "mainClass": "TestResultsDriver",
+            "projectName": "AP-Computer-Science_def20106"
+        },
+        {
+            "type": "java",
+            "name": "Launch TripTester",
+            "request": "launch",
+            "mainClass": "TripTester",
+            "projectName": "AP-Computer-Science_def20106"
+        },
+        {
+            "type": "java",
+            "name": "Launch CustomerTester",
+            "request": "launch",
+            "mainClass": "CustomerTester",
+            "projectName": "AP-Computer-Science_def20106"
+        },
+        {
+            "type": "java",
             "name": "Launch RecursionTester",
             "request": "launch",
             "mainClass": "RecursionTester",
