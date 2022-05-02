@@ -6,6 +6,34 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch HotelTester",
+            "request": "launch",
+            "mainClass": "HotelTester",
+            "projectName": "AP-Computer-Science_def20106"
+        },
+        {
+            "type": "java",
+            "name": "Launch AppointmentTester",
+            "request": "launch",
+            "mainClass": "AppointmentTester",
+            "projectName": "AP-Computer-Science_def20106"
+        },
+        {
+            "type": "java",
+            "name": "Launch StringCoderTester",
+            "request": "launch",
+            "mainClass": "StringCoderTester",
+            "projectName": "AP-Computer-Science_def20106"
+        },
+        {
+            "type": "java",
+            "name": "Launch ClimbInfoTester",
+            "request": "launch",
+            "mainClass": "ClimbInfoTester",
+            "projectName": "AP-Computer-Science_def20106"
+        },
+        {
+            "type": "java",
             "name": "Launch TestResultsDriver",
             "request": "launch",
             "mainClass": "TestResultsDriver",
