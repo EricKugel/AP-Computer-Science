@@ -40,17 +40,17 @@ public class StringCoder {
    * @param str  the string to encode using the master string
    * @return     a string part in the master string that matches the beginning of str.
    *             The returned string part has length at least 1.
-   */
-  private StringPart findPart(String str) {
-    int i = str.length();
-    while (i > 0) {
-      if (masterString.indexOf(str.substring(0, i)) > -1) {
-        return new StringPart(masterString.indexOf(str.substring(0, i)), i);
-      }
-      i--;
-    }
-    return null;
-  }
+  //  */
+  // private StringPart findPart(String str) {
+  //   int i = str.length();
+  //   while (i > 0) {
+  //     if (masterString.indexOf(str.substring(0, i)) > -1) {
+  //       return new StringPart(masterString.indexOf(str.substring(0, i)), i);
+  //     }
+  //     i--;
+  //   }
+  //   return null;
+  // }
   
   /** 
    * Returns an Arraylist of StringPart objects that can be combined.

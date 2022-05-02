@@ -32,11 +32,11 @@ public class AppointmentTester {
     System.out.println(myDentist.addAppt(towMater, false));
     System.out.println(myDentist);
     
-    // tests adding an emergency appointment that conflicts with one appointment
-    TimeInterval time6 = new TimeInterval(1345, 1430);
-    Appointment edna = new Appointment(time5);
-    System.out.println(myDentist.addAppt(edna, true));
-    System.out.println(myDentist);
+    // // tests adding an emergency appointment that conflicts with one appointment
+    // TimeInterval time6 = new TimeInterval(1345, 1430);
+    // Appointment edna = new Appointment(time5);
+    // System.out.println(myDentist.addAppt(edna, true));
+    // System.out.println(myDentist);
     
     // tests adding an emergency appointment that conflicts with two appointments
     TimeInterval time7 = new TimeInterval(1300, 1415);
