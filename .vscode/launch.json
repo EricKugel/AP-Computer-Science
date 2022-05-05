@@ -6,6 +6,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch Shuffler",
+            "request": "launch",
+            "mainClass": "Shuffler",
+            "projectName": "AP-Computer-Science_def20106"
+        },
+        {
+            "type": "java",
+            "name": "Launch DeckTester",
+            "request": "launch",
+            "mainClass": "DeckTester",
+            "projectName": "AP-Computer-Science_def20106"
+        },
+        {
+            "type": "java",
+            "name": "Launch CardTester",
+            "request": "launch",
+            "mainClass": "CardTester",
+            "projectName": "AP-Computer-Science_def20106"
+        },
+        {
+            "type": "java",
             "name": "Launch HotelTester",
             "request": "launch",
             "mainClass": "HotelTester",
