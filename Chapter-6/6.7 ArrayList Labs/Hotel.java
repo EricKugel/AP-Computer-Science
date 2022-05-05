@@ -59,7 +59,7 @@ public class Hotel {
     */
   public Reservation cancelAndReassign(Reservation res) {
     for (int i = 0; i < rooms.length; i++) {
-      if (rooms[i].getGuestName().equals(res.getGuestName()) && rooms[i].getRoomNumber() == res.getRoomNumber()) {
+      if (rooms[i] != null && rooms[i].getGuestName().equals(res.getGuestName()) && rooms[i].getRoomNumber() == res.getRoomNumber()) {
         rooms[i] = null;
         if (waitList.size() > 0) {
           return requestRoom(waitList.remove(0));

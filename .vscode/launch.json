@@ -6,6 +6,7 @@
     "configurations": [
         {
             "type": "java",
+<<<<<<< HEAD
             "name": "Launch Shuffler",
             "request": "launch",
             "mainClass": "Shuffler",
@@ -24,6 +25,47 @@
             "request": "launch",
             "mainClass": "CardTester",
             "projectName": "AP-Computer-Science_def20106"
+=======
+            "name": "Launch DelimitersTester",
+            "request": "launch",
+            "mainClass": "DelimitersTester",
+            "projectName": "AP Computer Science_df0b12c0"
+        },
+        {
+            "type": "java",
+            "name": "Launch StepTrackerTester",
+            "request": "launch",
+            "mainClass": "StepTrackerTester",
+            "projectName": "AP Computer Science_df0b12c0"
+        },
+        {
+            "type": "java",
+            "name": "Launch LogMessageTester",
+            "request": "launch",
+            "mainClass": "LogMessageTester",
+            "projectName": "AP Computer Science_df0b12c0"
+        },
+        {
+            "type": "java",
+            "name": "Launch FuelDepotTester",
+            "request": "launch",
+            "mainClass": "FuelDepotTester",
+            "projectName": "AP Computer Science_df0b12c0"
+        },
+        {
+            "type": "java",
+            "name": "Launch WordListTester",
+            "request": "launch",
+            "mainClass": "WordListTester",
+            "projectName": "AP Computer Science_df0b12c0"
+        },
+        {
+            "type": "java",
+            "name": "Launch HotelTester",
+            "request": "launch",
+            "mainClass": "HotelTester",
+            "projectName": "AP Computer Science_df0b12c0"
+>>>>>>> 382f2c2615977aa4c7991e4497e442d1f192bfc7
         },
         {
             "type": "java",
