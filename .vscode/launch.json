@@ -6,7 +6,6 @@
     "configurations": [
         {
             "type": "java",
-<<<<<<< HEAD
             "name": "Launch Shuffler",
             "request": "launch",
             "mainClass": "Shuffler",
@@ -18,18 +17,6 @@
             "request": "launch",
             "mainClass": "DeckTester",
             "projectName": "AP-Computer-Science_def20106"
-        },
-        {
-            "type": "java",
-            "name": "Launch CardTester",
-            "request": "launch",
-            "mainClass": "CardTester",
-            "projectName": "AP-Computer-Science_def20106"
-=======
-            "name": "Launch DelimitersTester",
-            "request": "launch",
-            "mainClass": "DelimitersTester",
-            "projectName": "AP Computer Science_df0b12c0"
         },
         {
             "type": "java",
@@ -65,7 +52,6 @@
             "request": "launch",
             "mainClass": "HotelTester",
             "projectName": "AP Computer Science_df0b12c0"
->>>>>>> 382f2c2615977aa4c7991e4497e442d1f192bfc7
         },
         {
             "type": "java",
