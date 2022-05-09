@@ -74,14 +74,8 @@ public class Shuffler {
    * @param paramValues is an array of integers simulating cards to be shuffled.
    */
   public static void selectionShuffle(int[] paramValues) {
-    for (int k = paramValues.length - 1; k >= 1; k--) {
-      int r = (int) (Math.random() * k);
-      int temp = paramValues[k];
-      paramValues[k] = paramValues[r];
-      paramValues[r] = temp;
-    }
+    /* *** TO BE IMPLEMENTED IN 7.C LAB *** */
   }
-  
   
   
 }
