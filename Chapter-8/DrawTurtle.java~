@@ -14,7 +14,6 @@ public class DrawTurtle extends Turtle {
   protected int centerX = 0;
   protected int centerY = 0;
   protected Color color = Color.BLACK;
-  private final static int HEXAGON_SIZE = 40;
   
   public void home() {
     currentX = 0;
@@ -115,21 +114,8 @@ public class DrawTurtle extends Turtle {
    * Draws a Sierpinski triangle using recursion.
    * You may add parameters as needed.
    */
-  public void fractalTriangle(int level, int length, int x, int y) {
-    if (level == 0) {
-      return;
-    }
-    
-    graphics.setColor(new Color((int) (255 * (double) level / 7), 110, 70));
-    if (level == 7) {
-      graphics.fillPolygon(new int[] {0, length / 2, length}, new int[] {length, 0, length}, 3);
-    }
-    
-    graphics.fillPolygon(new int[] {x + length / 4, x + length * 3 / 4, x + length / 2}, new int[] {y + length / 2, y + length / 2, y + length}, 3);
-    
-    fractalTriangle(level - 1, length / 2, x, y + length / 2);
-    fractalTriangle(level - 1, length / 2, x + length / 4, y);
-    fractalTriangle(level - 1, length / 2, x + length / 2, y + length / 2);
+  public void fractalTriangle(int level, int length) {
+    /* one of two methods to be implemented in part (c) */
   }
     
   /** 
@@ -138,13 +124,8 @@ public class DrawTurtle extends Turtle {
    * @param level   the number of iterations (rings) in the beehive
    * @param length  the length of each side of the hexagons
    */
-  public void beehive(int level) {
-    hexagon(400, 400);
-  }
-  
-  public void hexagon(int centerX, int centerY) {
-    graphics.drawPolygon(new int[] {centerX - HEXAGON_SIZE / 4, centerX + HEXAGON_SIZE / 4, centerX + HEXAGON_SIZE / 2, centerX + HEXAGON_SIZE / 4, centerX - HEXAGON_SIZE / 4, centerX - HEXAGON_SIZE / 2},
-                         new int[] {centerY - HEXAGON_SIZE / 2, centerY - HEXAGON_SIZE / 2, centerY, centerY + HEXAGON_SIZE / 2, centerY + HEXAGON_SIZE / 2, centerY}, 6); 
+  public void beehive(int level, int length) {
+    /* to be implemented in part (d) */
   }
   
 }
