@@ -28,13 +28,13 @@ public class TurtleTester {
 //        myTurtle.squiral();
 
         // runs fractal tree method in DrawTurtle (you may add parameters as needed)
-       myTurtle.fractalTree(400, 450, 12, 100, 90);
+//       myTurtle.fractalTree(400, 450, 12, 100, 90);
     
         // runs fractal method in DrawTurtle (you may add parameters as needed)
-//        myTurtle.fractalTriangle(7, 200);
+//        myTurtle.fractalTriangle(7, 800, 0, 0);
     
         // runs beehive method in DrawTurtle
-//        myTurtle.beehive(4, 10);
+        myTurtle.beehive(4);
       }
     };
     panel.setPreferredSize(new Dimension(800, 800));

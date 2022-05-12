@@ -59,18 +59,6 @@ public class DrawTurtle extends Turtle {
   }
   
   /**
-   * Draws a hexagon.
-   *
-   * @param length  the length of each side of the hexagon
-   */
-  public void hexagon(int length) {
-    for (int i = 0; i < 6; i++) { 
-      forward(length);
-      right(60);
-    }
-  }
-  
-  /**
    * Draws a free form practice drawing.
    */
   public void freeForm() {
@@ -82,7 +70,11 @@ public class DrawTurtle extends Turtle {
    * Draws a squiral (square spiral).
    */
   public void squiral() {
-    
+    home();
+    for (int i = 0; i < 22; i++) {
+      forward(i * 30);
+      right(90);
+    }
   }
   
   
@@ -139,7 +131,22 @@ public class DrawTurtle extends Turtle {
    * @param length  the length of each side of the hexagons
    */
   public void beehive(int level) {
-    hexagon(400, 400);
+    if (level == 0) {
+      hexagon(400, 400);
+    } else {
+      int x = 400;
+      int y = 400 - level * HEXAGON_SIZE;
+      int[] xChanges = {HEXAGON_SIZE * 3 / 4, 0, HEXAGON_SIZE * 3 / -4, HEXAGON_SIZE * 3 / -4, 0, HEXAGON_SIZE  * 3 / 4};
+      int[] yChanges = {HEXAGON_SIZE / 2, HEXAGON_SIZE, HEXAGON_SIZE / 2, HEXAGON_SIZE / -2, -1 * HEXAGON_SIZE, HEXAGON_SIZE / -2};
+      for (int i = 0; i < xChanges.length; i++) {
+        for (int j = 0; j < level; j++) {
+          hexagon(x, y);
+          x += xChanges[i];
+          y += yChanges[i];
+        }
+      }
+      beehive(level - 1);
+    }
   }
   
   public void hexagon(int centerX, int centerY) {
