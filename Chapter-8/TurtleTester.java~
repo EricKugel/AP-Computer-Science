@@ -22,7 +22,7 @@ public class TurtleTester {
         // myTurtle.hexagon(40);
         
         // runs freeForm method in DrawTutrle
-        //myTurtle.freeForm();
+//        myTurtle.freeForm();
     
         // runs squiral method in DrawTurtle (you may add parameters as needed)
 //        myTurtle.squiral();
@@ -34,7 +34,7 @@ public class TurtleTester {
 //        myTurtle.fractalTriangle(7, 800, 0, 0);
     
         // runs beehive method in DrawTurtle
-        myTurtle.beehive(4);
+//        myTurtle.beehive(4);
       }
     };
     panel.setPreferredSize(new Dimension(800, 800));

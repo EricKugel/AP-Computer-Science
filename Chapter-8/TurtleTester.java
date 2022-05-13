@@ -34,7 +34,7 @@ public class TurtleTester {
 //        myTurtle.fractalTriangle(7, 800, 0, 0);
     
         // runs beehive method in DrawTurtle
-//        myTurtle.beehive(4);
+//        myTurtle.beehive(10);
       }
     };
     panel.setPreferredSize(new Dimension(800, 800));

@@ -150,6 +150,10 @@ public class DrawTurtle extends Turtle {
   }
   
   public void hexagon(int centerX, int centerY) {
+    graphics.setColor(Color.YELLOW);
+    graphics.fillPolygon(new int[] {centerX - HEXAGON_SIZE / 4, centerX + HEXAGON_SIZE / 4, centerX + HEXAGON_SIZE / 2, centerX + HEXAGON_SIZE / 4, centerX - HEXAGON_SIZE / 4, centerX - HEXAGON_SIZE / 2},
+                         new int[] {centerY - HEXAGON_SIZE / 2, centerY - HEXAGON_SIZE / 2, centerY, centerY + HEXAGON_SIZE / 2, centerY + HEXAGON_SIZE / 2, centerY}, 6); 
+    graphics.setColor(Color.BLACK);
     graphics.drawPolygon(new int[] {centerX - HEXAGON_SIZE / 4, centerX + HEXAGON_SIZE / 4, centerX + HEXAGON_SIZE / 2, centerX + HEXAGON_SIZE / 4, centerX - HEXAGON_SIZE / 4, centerX - HEXAGON_SIZE / 2},
                          new int[] {centerY - HEXAGON_SIZE / 2, centerY - HEXAGON_SIZE / 2, centerY, centerY + HEXAGON_SIZE / 2, centerY + HEXAGON_SIZE / 2, centerY}, 6); 
   }
