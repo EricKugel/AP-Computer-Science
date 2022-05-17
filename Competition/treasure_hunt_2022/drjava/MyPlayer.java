@@ -13,11 +13,9 @@
  * the License.
  */
 
-import com.ibm.vie.mazerunner.IPlayer;
-import com.ibm.vie.mazerunner.IAnalysisBoard;
-import com.ibm.vie.mazerunner.IBoard;
-import com.ibm.vie.mazerunner.Move;
-import com.ibm.vie.mazerunner.MyTreasureHunt;
+import com.ibm.vie.mazerunner.*;
+import com.ibm.vie.mazerunner.squares.*;
+import java.util.ArrayList;
 
 /**
  * This class is your implementation of a player who
@@ -25,7 +23,8 @@ import com.ibm.vie.mazerunner.MyTreasureHunt;
  * using the fewest number of steps you can.
  */
 public class MyPlayer implements IPlayer {
-
+  private ArrayList<Move> moves = new ArrayList<Move>();
+    
     /**
      * Gives the board, and the IBM judges a way to identify
      * your player, and differentiate it from other student submissions.
@@ -52,11 +51,7 @@ public class MyPlayer implements IPlayer {
      * @param board The game board for your player to analyze
      */
     public void analyzeBoard(IAnalysisBoard board) {
-
-        /*
-         * TODO ADD YOUR CODE HERE
-         * This is optional, but recommended.
-         */
+      
     }
 
     /**
@@ -77,9 +72,7 @@ public class MyPlayer implements IPlayer {
      * @return Your next move
      */
     public Move selectMove(IBoard board) throws Error {
-      System.out.println(board.  
-      return Move.NORTH;
-        
+      return moveFromTo(board.getPlayerLocation(), board.getTreasures().get(0).getLocation());
     }
 
     /**
@@ -100,6 +93,31 @@ public class MyPlayer implements IPlayer {
          * TODO Your code here.
          * Using this method is optional.
          */
+    }
+    
+    private Move moveFromTo(Location from, Location to) {
+      int row1 = from.getRow();
+      int row2 = to.getRow();
+      int col1 = from.getCol();
+      int col2 = to.getCol();
+      
+      double direction = 0;
+      if (col1 != col2) {
+        direction = Math.atan((row1 - row2) / (double) (col2 - col1)) + (col1 > col2 ? Math.PI : 0);
+        if (direction < 0) {
+          direction += Math.PI * 2;
+        }
+      }
+      System.out.println(Math.toDegrees(direction));
+      if (direction >= Math.PI / 4 && direction < Math.PI * 3 / 4) {
+        return Move.NORTH;
+      } else if (direction >= Math.PI * 3 / 4 && direction < Math.PI * 5 / 4) {
+        return Move.WEST;
+      } else if (direction >= Math.PI * 5 / 4 && direction < Math.PI * 7 / 4) {
+        return Move.SOUTH;
+      } else {
+        return Move.EAST;
+      }
     }
 
     /**
