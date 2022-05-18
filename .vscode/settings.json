@@ -1,17 +1,17 @@
 {
     "java.project.sourcePaths": [
         "Chapter-8",
+        "Chapter-7-Extension",
         "Chapter-7",
         "Chapter-6/6.7 ArrayList Labs",
         "Chapter-6-Extension",
         "Chapter-6",
-        "Chapter-7-Extension"
+        "Competition/treasure_hunt_2022/drjava"
     ],
     "java.help.showReleaseNotes": false,
-    "java.configuration.runtimes": [
-        {
-            "name": "JavaSE-1.8",
-            "path": "C:/Program Files/Java/jdk1.8.0_131/bin"
-        }
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "Competition\\treasure_hunt_2022\\lib\\javacsv.jar",
+        "Competition\\treasure_hunt_2022\\lib\\treasurehunt.jar"
     ]
 }

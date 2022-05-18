@@ -286,7 +286,7 @@ public class CardGameGUI extends JFrame implements ActionListener {
       List<Integer> selection = new ArrayList<Integer>();
       for (int k = 0; k < board.size(); k++) {
         if (selections[k]) {
-          selection.add(new Integer(k));
+          selection.add(k);
         }
       }
       // makes sure that the selected cards represent a legal replacement
