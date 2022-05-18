@@ -24,12 +24,14 @@ import java.util.ArrayList;
  */
 public class MyPlayer implements IPlayer {
   private ArrayList<Move> moves = new ArrayList<Move>();
+  private static final Move[] DIRECTIONS = {Move.NORTH, Move.WEST, Move.SOUTH, Move.EAST};
   
   public String getName() {
       return "Eric Kugel";
   }
 
   public void analyzeBoard(IAnalysisBoard board) {
+    moves = new ArrayList<Move>();
     Location location = board.getPlayerLocation();
     ArrayList<Treasure> route = new ArrayList<Treasure>();
     while (route.size() < board.getRemainingTreasureCount()) {
@@ -63,7 +65,7 @@ public class MyPlayer implements IPlayer {
   private ArrayList<Move> findPath(Location to, Location from, IBoard board) {
     int[][] model = new int[board.getHeight()][board.getWidth()];
     model[to.getRow()][to.getCol()] = 1000;
-    for (Move move : Move.values()) {
+    for (Move move : DIRECTIONS) {
       calculateSteps(to, move, model, board);
     }
 
@@ -71,7 +73,7 @@ public class MyPlayer implements IPlayer {
     while(from.distance(to) != 0) {
       int maxValue = 0;
       Move next = null;
-      for (Move move : Move.values()) {
+      for (Move move : DIRECTIONS) {
         Location newLocation = applyMove(from, move);
         if (model[newLocation.getRow()][newLocation.getCol()] > maxValue) {
           maxValue = model[newLocation.getRow()][newLocation.getCol()];
@@ -83,17 +85,23 @@ public class MyPlayer implements IPlayer {
     }
     return moves;
   }
-
+  
   private void calculateSteps(Location location, Move move, int[][] model, IBoard board) {
     Location newLocation = applyMove(location, move);
     if (newLocation.getRow() > -1 && newLocation.getCol() > -1 && newLocation.getRow() < board.getHeight() && newLocation.getCol() < board.getWidth() && !board.getSquareAt(newLocation).getSpriteName().equals("Wall")) {
       int newValue = model[location.getRow()][location.getCol()] - board.getSquareAt(newLocation).getStepCost();
       if (newValue > model[newLocation.getRow()][newLocation.getCol()]) {
         model[newLocation.getRow()][newLocation.getCol()] = newValue;
-        for (Move newMove : Move.values()) {
+        for (Move newMove : DIRECTIONS) {
           calculateSteps(newLocation, newMove, model, board);
         }
       }
+    }
+    for (int[] r : model) {
+      for (int c : r) {
+        System.out.print(c + "\t");
+      }
+      System.out.println();
     }
   }
 
