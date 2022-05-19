@@ -9,6 +9,13 @@
             "name": "Launch MyPlayer",
             "request": "launch",
             "mainClass": "MyPlayer",
+            "projectName": "AP-Computer-Science_ceff81c7"
+        },
+        {
+            "type": "java",
+            "name": "Launch MyPlayer",
+            "request": "launch",
+            "mainClass": "MyPlayer",
             "projectName": "AP Computer Science_df0b12c0"
         },
         {

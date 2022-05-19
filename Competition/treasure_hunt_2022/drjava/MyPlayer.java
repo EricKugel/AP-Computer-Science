@@ -1,3 +1,4 @@
+
 /**
  * (C) Copyright IBM Corp. 2016,2022. All Rights Reserved. US Government Users Restricted Rights - Use,
  * duplication or disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
@@ -24,14 +25,16 @@ import java.util.ArrayList;
  */
 public class MyPlayer implements IPlayer {
   private ArrayList<Move> moves = new ArrayList<Move>();
-  private static final Move[] DIRECTIONS = {Move.NORTH, Move.WEST, Move.SOUTH, Move.EAST};
-  
+  private static final Move[] DIRECTIONS = { Move.NORTH, Move.WEST, Move.SOUTH, Move.EAST };
+  private boolean completed = false;
+
   public String getName() {
-      return "Eric Kugel";
+    return "Eric Kugel";
   }
 
   public void analyzeBoard(IAnalysisBoard board) {
-    moves = new ArrayList<Move>();
+    moves.clear();
+    completed = false;
     Location location = board.getPlayerLocation();
     ArrayList<Treasure> route = new ArrayList<Treasure>();
     while (route.size() < board.getRemainingTreasureCount()) {
@@ -54,6 +57,12 @@ public class MyPlayer implements IPlayer {
         }
       }
 
+      if (completed) {
+        System.out.println("two methods at once??");
+        System.out.println("Level with " + board.getTreasures().size() + " treasures");
+        completed = false;
+      }
+
       route.add(target);
       for (Move move : findPath(target.getLocation(), location, board)) {
         moves.add(move);
@@ -70,7 +79,7 @@ public class MyPlayer implements IPlayer {
     }
 
     ArrayList<Move> moves = new ArrayList<Move>();
-    while(from.distance(to) != 0) {
+    while (from.distance(to) != 0) {
       int maxValue = 0;
       Move next = null;
       for (Move move : DIRECTIONS) {
@@ -85,10 +94,11 @@ public class MyPlayer implements IPlayer {
     }
     return moves;
   }
-  
+
   private void calculateSteps(Location location, Move move, int[][] model, IBoard board) {
     Location newLocation = applyMove(location, move);
-    if (newLocation.getRow() > -1 && newLocation.getCol() > -1 && newLocation.getRow() < board.getHeight() && newLocation.getCol() < board.getWidth() && !board.getSquareAt(newLocation).getSpriteName().equals("Wall")) {
+    if (newLocation.getRow() > -1 && newLocation.getCol() > -1 && newLocation.getRow() < board.getHeight()
+        && newLocation.getCol() < board.getWidth() && !board.getSquareAt(newLocation).getSpriteName().equals("Wall")) {
       int newValue = model[location.getRow()][location.getCol()] - board.getSquareAt(newLocation).getStepCost();
       if (newValue > model[newLocation.getRow()][newLocation.getCol()]) {
         model[newLocation.getRow()][newLocation.getCol()] = newValue;
@@ -96,12 +106,6 @@ public class MyPlayer implements IPlayer {
           calculateSteps(newLocation, newMove, model, board);
         }
       }
-    }
-    for (int[] r : model) {
-      for (int c : r) {
-        System.out.print(c + "\t");
-      }
-      System.out.println();
     }
   }
 
@@ -119,8 +123,8 @@ public class MyPlayer implements IPlayer {
   }
 
   public void gameCompleted(IBoard board) {
-    
-  } 
+    completed = true;
+  }
 
   // Their Move.apply(Location loc) method doesn't work so I'll write it myself.
   private Location applyMove(Location loc, Move move) {
@@ -134,8 +138,8 @@ public class MyPlayer implements IPlayer {
       return new Location(loc.getRow(), loc.getCol() + 1);
     }
   }
-  
+
   public static void main(String args[]) {
-      MyTreasureHunt.run(new MyPlayer());
+    MyTreasureHunt.run(new MyPlayer());
   }
 }
