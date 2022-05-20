@@ -38,7 +38,8 @@ public class MyPlayer implements IPlayer {
     Location location = board.getPlayerLocation();
     ArrayList<Treasure> route = new ArrayList<Treasure>();
     while (route.size() < board.getRemainingTreasureCount()) {
-      int minCost = Integer.MAX_VALUE;
+      int minDist = Integer.MAX_VALUE;
+
       Treasure target = null;
       for (Treasure treasure : board.getTreasures()) {
         boolean added = false;
@@ -49,16 +50,16 @@ public class MyPlayer implements IPlayer {
         }
 
         if (!added) {
-          int cost = getPathCost(location, findPath(treasure.getLocation(), location, board), board);
-          if (cost < minCost) {
+          int dist = location.distance(treasure.getLocation());
+          if (dist < minDist) {
             target = treasure;
-            minCost = cost;
+            minDist = dist;
           }
         }
       }
 
       if (completed) {
-        System.out.println("Two methods are running at once");
+        System.out.println("two methods at once??");
         System.out.println("Level with " + board.getTreasures().size() + " treasures");
         completed = false;
       }
@@ -107,15 +108,6 @@ public class MyPlayer implements IPlayer {
         }
       }
     }
-  }
-
-  private int getPathCost(Location location, ArrayList<Move> moves, IBoard board) {
-    int cost = 0;
-    for (Move move : moves) {
-      location = applyMove(location, move);
-      cost += board.getSquareAt(location).getStepCost();
-    }
-    return cost;
   }
 
   public Move selectMove(IBoard board) throws Error {
