@@ -39,6 +39,7 @@ public class MyPlayer implements IPlayer {
     ArrayList<Treasure> route = new ArrayList<Treasure>();
     while (route.size() < board.getRemainingTreasureCount()) {
       int minCost = Integer.MAX_VALUE;
+      // Finds the closest treasure.
       Treasure target = null;
       for (Treasure treasure : board.getTreasures()) {
         boolean added = false;
@@ -72,12 +73,14 @@ public class MyPlayer implements IPlayer {
   }
 
   private ArrayList<Move> findPath(Location to, Location from, IBoard board) {
+    // Build model
     int[][] model = new int[board.getHeight()][board.getWidth()];
     model[to.getRow()][to.getCol()] = 1000;
     for (Move move : DIRECTIONS) {
       calculateSteps(to, move, model, board);
     }
 
+    // Find shortest path
     ArrayList<Move> moves = new ArrayList<Move>();
     while (from.distance(to) != 0) {
       int maxValue = 0;
@@ -95,6 +98,9 @@ public class MyPlayer implements IPlayer {
     return moves;
   }
 
+  // Recursively builds a model of the board. The treasure is given a value of
+  // 1000, and each square around it is given a value of that square minus its
+  // step cost. Any bigger value that is found overrides the smaller value.
   private void calculateSteps(Location location, Move move, int[][] model, IBoard board) {
     Location newLocation = applyMove(location, move);
     if (newLocation.getRow() > -1 && newLocation.getCol() > -1 && newLocation.getRow() < board.getHeight()
@@ -109,6 +115,7 @@ public class MyPlayer implements IPlayer {
     }
   }
 
+  // This adds up all the step costs.
   private int getPathCost(Location location, ArrayList<Move> moves, IBoard board) {
     int cost = 0;
     for (Move move : moves) {
@@ -126,7 +133,7 @@ public class MyPlayer implements IPlayer {
     completed = true;
   }
 
-  // Their Move.apply(Location loc) method doesn't work so I'll write it myself.
+  // I know there's already a Move.apply method
   private Location applyMove(Location loc, Move move) {
     if (move.equals(Move.NORTH)) {
       return new Location(loc.getRow() - 1, loc.getCol());
