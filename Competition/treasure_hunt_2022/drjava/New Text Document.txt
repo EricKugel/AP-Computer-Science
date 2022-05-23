@@ -26,7 +26,6 @@ import java.util.ArrayList;
 public class MyPlayer implements IPlayer {
   private ArrayList<Move> moves = new ArrayList<Move>();
   private static final Move[] DIRECTIONS = { Move.NORTH, Move.WEST, Move.SOUTH, Move.EAST };
-  private boolean completed = false;
 
   public String getName() {
     return "Eric Kugel";
@@ -34,7 +33,6 @@ public class MyPlayer implements IPlayer {
 
   public void analyzeBoard(IAnalysisBoard board) {
     moves.clear();
-    completed = false;
     Location location = board.getPlayerLocation();
     ArrayList<Treasure> route = new ArrayList<Treasure>();
     while (route.size() < board.getRemainingTreasureCount()) {
@@ -56,12 +54,6 @@ public class MyPlayer implements IPlayer {
             minDist = dist;
           }
         }
-      }
-
-      if (completed) {
-        System.out.println("two methods at once??");
-        System.out.println("Level with " + board.getTreasures().size() + " treasures");
-        completed = false;
       }
 
       route.add(target);
@@ -96,6 +88,7 @@ public class MyPlayer implements IPlayer {
     return moves;
   }
 
+  // Recursively builds a model of the board.
   private void calculateSteps(Location location, Move move, int[][] model, IBoard board) {
     Location newLocation = applyMove(location, move);
     if (newLocation.getRow() > -1 && newLocation.getCol() > -1 && newLocation.getRow() < board.getHeight()
@@ -115,7 +108,7 @@ public class MyPlayer implements IPlayer {
   }
 
   public void gameCompleted(IBoard board) {
-    completed = true;
+
   }
 
   // Their Move.apply(Location loc) method doesn't work so I'll write it myself.
