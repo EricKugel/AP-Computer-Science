@@ -34,37 +34,20 @@ public class MyPlayer implements IPlayer {
 
   public void analyzeBoard(IAnalysisBoard board) {
     moves.clear();
-    completed = false;
     Location location = board.getPlayerLocation();
-    ArrayList<Treasure> route = new ArrayList<Treasure>();
-    while (route.size() < board.getRemainingTreasureCount()) {
-      int minCost = Integer.MAX_VALUE;
-      // Finds the closest treasure.
+    ArrayList<Treasure> route = new ArrayList<Treasure>(board.getTreasures());
+    while (route.size() > 0) {
+      int minDist = Integer.MAX_VALUE;
+      // Find the closest treasure
       Treasure target = null;
-      for (Treasure treasure : board.getTreasures()) {
-        boolean added = false;
-        for (Treasure other : route) {
-          if (treasure.equals(other)) {
-            added = true;
-          }
-        }
-
-        if (!added) {
-          int cost = getPathCost(location, findPath(treasure.getLocation(), location, board), board);
-          if (cost < minCost) {
-            target = treasure;
-            minCost = cost;
-          }
+      for (Treasure treasure : route) {
+        int dist = location.distance(treasure.getLocation());
+        if (dist < minDist) {
+          target = treasure;
+          minDist = dist;
         }
       }
-
-      if (completed) {
-        System.out.println("Two methods are running at once");
-        System.out.println("Level with " + board.getTreasures().size() + " treasures");
-        completed = false;
-      }
-
-      route.add(target);
+      route.remove(target);
       for (Move move : findPath(target.getLocation(), location, board)) {
         moves.add(move);
       }
@@ -72,57 +55,69 @@ public class MyPlayer implements IPlayer {
     }
   }
 
+  private class Square {
+    int score;
+    Square parent;
+    Move move;
+
+    public Square(int score, Square parent, Move move) {
+      this.score = score;
+      this.parent = parent;
+      this.move = move;
+    }
+
+    public Square getParent() {
+      return parent;
+    }
+
+    public int getScore() {
+      return score;
+    }
+
+    public Move getMove() {
+      return move;
+    }
+  }
+
   private ArrayList<Move> findPath(Location to, Location from, IBoard board) {
     // Build model
-    int[][] model = new int[board.getHeight()][board.getWidth()];
-    model[to.getRow()][to.getCol()] = 1000;
+    Square[][] model = new Square[board.getHeight()][board.getWidth()];
+    model[to.getRow()][to.getCol()] = new Square(0, null, null);
     for (Move move : DIRECTIONS) {
       calculateSteps(to, move, model, board);
     }
 
-    // Find shortest path
+    // Find moves in the shortest path
     ArrayList<Move> moves = new ArrayList<Move>();
-    while (from.distance(to) != 0) {
-      int maxValue = 0;
-      Move next = null;
-      for (Move move : DIRECTIONS) {
-        Location newLocation = applyMove(from, move);
-        if (model[newLocation.getRow()][newLocation.getCol()] > maxValue) {
-          maxValue = model[newLocation.getRow()][newLocation.getCol()];
-          next = move;
-        }
-      }
-      from = applyMove(from, next);
-      moves.add(next);
+    Square square = model[from.getRow()][from.getCol()];
+    while (square.getParent() != null) {
+      moves.add(square.getMove());
+      square = square.getParent();
     }
+
     return moves;
   }
 
   // Recursively builds a model of the board. The treasure is given a value of
   // 1000, and each square around it is given a value of that square minus its
   // step cost. Any bigger value that is found overrides the smaller value.
-  private void calculateSteps(Location location, Move move, int[][] model, IBoard board) {
-    Location newLocation = applyMove(location, move);
-    if (newLocation.getRow() > -1 && newLocation.getCol() > -1 && newLocation.getRow() < board.getHeight()
-        && newLocation.getCol() < board.getWidth() && !board.getSquareAt(newLocation).getSpriteName().equals("Wall")) {
-      int newValue = model[location.getRow()][location.getCol()] - board.getSquareAt(newLocation).getStepCost();
-      if (newValue > model[newLocation.getRow()][newLocation.getCol()]) {
-        model[newLocation.getRow()][newLocation.getCol()] = newValue;
+  private void calculateSteps(Location location, Move move, Square[][] model,
+      IBoard board) {
+    Location newLocation = move.apply(location);
+    int newRow = newLocation.getRow();
+    int newCol = newLocation.getCol();
+
+    if (newRow > -1 && newCol > -1 && newRow < board.getHeight() && newCol < board.getWidth()
+        && !board.getSquareAt(newLocation).getSpriteName().equals("Wall")) {
+      Square square = model[location.getRow()][location.getCol()];
+      int newValue = square.getScore() + board.getSquareAt(newLocation).getStepCost();
+      if (model[newRow][newCol] == null || newValue < model[newRow][newCol].getScore()) {
+        model[newRow][newCol] = new Square(newValue, square, move.inverse().get());
         for (Move newMove : DIRECTIONS) {
           calculateSteps(newLocation, newMove, model, board);
         }
       }
     }
-  }
-
-  // This adds up all the step costs.
-  private int getPathCost(Location location, ArrayList<Move> moves, IBoard board) {
-    int cost = 0;
-    for (Move move : moves) {
-      location = applyMove(location, move);
-      cost += board.getSquareAt(location).getStepCost();
-    }
-    return cost;
   }
 
   public Move selectMove(IBoard board) throws Error {
@@ -131,19 +126,6 @@ public class MyPlayer implements IPlayer {
 
   public void gameCompleted(IBoard board) {
     completed = true;
-  }
-
-  // I know there's already a Move.apply method
-  private Location applyMove(Location loc, Move move) {
-    if (move.equals(Move.NORTH)) {
-      return new Location(loc.getRow() - 1, loc.getCol());
-    } else if (move.equals(Move.WEST)) {
-      return new Location(loc.getRow(), loc.getCol() - 1);
-    } else if (move.equals(Move.SOUTH)) {
-      return new Location(loc.getRow() + 1, loc.getCol());
-    } else {
-      return new Location(loc.getRow(), loc.getCol() + 1);
-    }
   }
 
   public static void main(String args[]) {
