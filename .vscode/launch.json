@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch MyPlayerButBetter",
+            "request": "launch",
+            "mainClass": "MyPlayerButBetter",
+            "projectName": "AP Computer Science_df0b12c0"
+        },
+        {
+            "type": "java",
+            "name": "Launch ClassmateEric",
+            "request": "launch",
+            "mainClass": "ClassmateEric",
+            "projectName": "AP Computer Science_df0b12c0"
+        },
+        {
+            "type": "java",
             "name": "Launch MyPlayer",
             "request": "launch",
             "mainClass": "MyPlayer",
