@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <drjava version="drjava-20160913-225446">
   <project autorefresh="false" main="MyPlayer" manifest="" root="" work="">
-    <createjar file="schoolname_firstname_lastname.jar" flags="8"/>
+    <createjar file="mayo_eric_kugel.jar" flags="8"/>
     <source>
-      <file active="true" name="MyPlayer.java" package="" timestamp="18-May-2022 11:46:29">
-        <select from="3107" to="3107"/>
-        <scroll column="1367" row="0"/>
+      <file active="true" name="MyPlayer.java" package="" timestamp="25-May-2022 11:23:08">
+        <select from="4098" to="4098"/>
+        <scroll column="1248" row="0"/>
       </file>
     </source>
     <included/>
@@ -15,9 +15,7 @@
       <file absolute="false" name="../lib/javacsv.jar"/>
       <file absolute="false" name="../lib/treasurehunt.jar"/>
     </classpath>
-    <breakpoints>
-      <breakpoint enabled="true" file="MyPlayer.java" line="90"/>
-    </breakpoints>
+    <breakpoints/>
     <watches>
       <watch name="moves"/>
       <watch name="model"/>

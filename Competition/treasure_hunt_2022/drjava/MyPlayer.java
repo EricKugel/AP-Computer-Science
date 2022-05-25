@@ -1,4 +1,3 @@
-
 /**
  * (C) Copyright IBM Corp. 2016,2022. All Rights Reserved. US Government Users Restricted Rights - Use,
  * duplication or disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
@@ -18,11 +17,6 @@ import com.ibm.vie.mazerunner.*;
 import com.ibm.vie.mazerunner.squares.*;
 import java.util.ArrayList;
 
-/**
- * This class is your implementation of a player who
- * searches a board for treasure. Your goal is to do so
- * using the fewest number of steps you can.
- */
 public class MyPlayer implements IPlayer {
   private ArrayList<Move> route = new ArrayList<Move>();
   private static final Move[] DIRECTIONS = {Move.NORTH, Move.WEST, Move.SOUTH, Move.EAST};
@@ -37,12 +31,10 @@ public class MyPlayer implements IPlayer {
   }
 
   public Move selectMove(IBoard board) throws Error {
-    if (route.size() > 0) {
-        return route.remove(0);
-    } else {
-        route = getNextRoute(board);
-        return route.remove(0);
+    if (route.size() == 0) {
+      route = getNextRoute(board);
     }
+    return route.remove(0);
   }
 
   public void gameCompleted(IBoard board) { }
@@ -55,10 +47,10 @@ public class MyPlayer implements IPlayer {
     Square[][] model = new Square[board.getHeight()][board.getWidth()];
     bestPathScore = Integer.MAX_VALUE;
     for (Treasure treasure : board.getTreasures()) {
-        model[treasure.getLocation().getRow()][treasure.getLocation().getCol()] = new Square(0, null, null);
-        for (Move move : DIRECTIONS) {
-            calculateSteps(treasure.getLocation(), move, model, board);
-        }
+      model[treasure.getLocation().getRow()][treasure.getLocation().getCol()] = new Square(0, null, null);
+      for (Move move : DIRECTIONS) {
+        calculateSteps(treasure.getLocation(), move, model, board);
+      }
     }
 
     // Generate route
@@ -66,8 +58,8 @@ public class MyPlayer implements IPlayer {
     Location playerLocation = board.getPlayerLocation();
     Square square = model[playerLocation.getRow()][playerLocation.getCol()];
     while (square.parent != null) {
-        route.add(square.move);
-        square = square.parent;
+      route.add(square.move);
+      square = square.parent;
     }
 
     return route;
@@ -77,16 +69,16 @@ public class MyPlayer implements IPlayer {
    * Recursively builds a model of the board. The treasure is given a score of 0,
    * and each square around it is given a score of that score plus its step cost.
    * If a score for a square is found that's lower, it overrides the old one.
-  */
+   */
   private void calculateSteps(Location location, Move move, Square[][] model, IBoard board) {
     Location newLocation = move.apply(location);
     int newRow = newLocation.getRow();
     int newCol = newLocation.getCol();
 
-    if (newRow > -1 && newCol > -1 && newRow < board.getHeight() && newCol < board.getWidth()
+    if (newRow > -1 && newCol > -1 && newRow < board.getHeight() && newCol < board.getWidth() 
         && !board.getSquareAt(newLocation).getSpriteName().equals("Wall")) {
-      Square square = model[location.getRow()][location.getCol()];
-      int newValue = square.score + board.getSquareAt(newLocation).getStepCost();
+      Square parent = model[location.getRow()][location.getCol()];
+      int newValue = parent.score + board.getSquareAt(newLocation).getStepCost();
 
       // Don't do any unnecessary recursion
       if (newValue > bestPathScore) {
@@ -95,9 +87,9 @@ public class MyPlayer implements IPlayer {
         bestPathScore = newValue;
       }
 
-      // If a better path is found, recurse.
+      // If a better path is found, recurse
       if (model[newRow][newCol] == null || newValue < model[newRow][newCol].score) {
-        model[newRow][newCol] = new Square(newValue, square, move.inverse().get());
+        model[newRow][newCol] = new Square(newValue, parent, move.inverse().get());
         for (Move newMove : DIRECTIONS) {
           calculateSteps(newLocation, newMove, model, board);
         }
@@ -109,6 +101,10 @@ public class MyPlayer implements IPlayer {
     MyTreasureHunt.run(new MyPlayer());
   }
 
+  /**
+   * A helper class to use in models of the board. It stores a square's score,
+   * the next square on the best route to treasure, and move to that square.
+   */
   private class Square {
     public int score;
     public Square parent;
